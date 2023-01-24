@@ -6,6 +6,8 @@ import 'package:lefine_app/feature/register/view/register_view.dart';
 import 'package:lefine_app/product/navigator/app_router.gr.dart';
 
 import '../../../core/components/button/custom_button.dart';
+import '../../../core/components/button/google_button.dart';
+import '../../../core/components/text_field/custom_text_form_field.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -72,6 +74,7 @@ class _LoginViewState extends State<LoginView> {
                               child: Text(
                                 'Register',
                                 style: Theme.of(context).textTheme.headline6?.copyWith(
+                                    fontWeight: FontWeight.w500,
                                     decoration: TextDecoration.underline,
                                     decorationThickness: 1.014,
                                     shadows: [const Shadow(color: Color(0xffBFA8FC), offset: Offset(0, -2))],
@@ -97,28 +100,8 @@ class _LoginViewState extends State<LoginView> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    decoration:
-                        BoxDecoration(color: Colors.white.withOpacity(.2), borderRadius: BorderRadius.circular(8)),
-                    height: 48,
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset('assets/images/svg/ic_google.svg'),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          'Sign in with Google',
-                          style: Theme.of(context).textTheme.headline6?.copyWith(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15,
-                              color: Colors.white,
-                              fontFamily: Constants.fontFamily),
-                        ),
-                      ],
-                    ),
+                  GoogleButton(
+                    onTap: () {},
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20.0),
@@ -131,47 +114,21 @@ class _LoginViewState extends State<LoginView> {
                           fontFamily: Constants.fontFamily),
                     ),
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
+                  CustomTextFormField(
                       prefixIcon: IconButton(
                         onPressed: () {},
                         icon: SvgPicture.asset('assets/images/svg/ic_user.svg'),
                       ),
                       labelText: "Username or Email",
-                      labelStyle: Theme.of(context).textTheme.headline6?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.white.withOpacity(.5),
-                          fontFamily: Constants.fontFamily1),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white, width: 1),
-                      ),
-                      fillColor: Colors.white.withOpacity(.1),
-                      filled: true,
-                    ),
-                  ),
+                      textInputAction: TextInputAction.next),
                   const SizedBox(
                     height: 23,
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: "Password",
-                      prefixIcon: IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset('assets/images/svg/ic_pass.svg'),
-                      ),
-                      labelStyle: Theme.of(context).textTheme.headline6?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.white.withOpacity(.5),
-                          fontFamily: Constants.fontFamily1),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.white, width: 1),
-                      ),
-                      fillColor: Colors.white.withOpacity(.1),
-                      filled: true,
+                  CustomTextFormField(
+                    labelText: "Password",
+                    prefixIcon: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset('assets/images/svg/ic_pass.svg'),
                     ),
                   ),
                   Padding(
