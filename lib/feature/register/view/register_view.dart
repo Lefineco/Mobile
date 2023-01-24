@@ -2,18 +2,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lefine_app/core/constants/constants.dart';
-import 'package:lefine_app/feature/register/view/register_view.dart';
-import 'package:lefine_app/product/navigator/app_router.gr.dart';
 
 import '../../../core/components/button/custom_button.dart';
+import '../../../product/navigator/app_router.gr.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class RegisterView extends StatefulWidget {
+  const RegisterView({Key? key}) : super(key: key);
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
                   Row(
                     children: [
                       Text(
-                        'Login',
+                        'Register',
                         style: Theme.of(context).textTheme.headline6?.copyWith(
                             fontWeight: FontWeight.w700,
                             fontSize: 32,
@@ -67,10 +66,10 @@ class _LoginViewState extends State<LoginView> {
                             ),
                             InkWell(
                               onTap: () {
-                                context.router.navigate(const RegisterRoute());
+                                context.router.navigate(const LoginRoute());
                               },
                               child: Text(
-                                'Register',
+                                'Login',
                                 style: Theme.of(context).textTheme.headline6?.copyWith(
                                     decoration: TextDecoration.underline,
                                     decorationThickness: 1.014,
@@ -174,49 +173,37 @@ class _LoginViewState extends State<LoginView> {
                       filled: true,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 18.0),
-                    child: Row(
-                      children: [
-                        Checkbox(
-                          value: true,
-                          checkColor: Colors.black,
-                          fillColor: MaterialStateProperty.all(const Color(0xffC3ACFF)),
-                          visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          onChanged: (value) {},
-                        ),
-                        Text(
-                          'Remember me',
-                          style: Theme.of(context).textTheme.headline6?.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 15,
-                              color: Colors.white.withOpacity(.5),
-                              fontFamily: Constants.fontFamily),
-                        ),
-                        const Spacer(),
-                        Text(
-                          'Forget Password?',
-                          style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
-                              height: 1.7,
-                              color: const Color(0xffC3ACFF),
-                              fontFamily: Constants.fontFamily1),
-                        ),
-                      ],
+                  const SizedBox(
+                    height: 23,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: "Confirm Password",
+                      prefixIcon: IconButton(
+                        onPressed: () {},
+                        icon: SvgPicture.asset('assets/images/svg/ic_pass.svg'),
+                      ),
+                      labelStyle: Theme.of(context).textTheme.headline6?.copyWith(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Colors.white.withOpacity(.5),
+                          fontFamily: Constants.fontFamily1),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: const BorderSide(color: Colors.white, width: 1),
+                      ),
+                      fillColor: Colors.white.withOpacity(.1),
+                      filled: true,
                     ),
                   ),
                   MyElevatedButton(
-                    gradient: LinearGradient(colors: [
+                    gradient: const LinearGradient(colors: [
                       Color(0xff7F56D9),
                       Color(0xff683CC9),
                     ]),
                     borderRadius: BorderRadius.circular(8),
                     child: Text(
-                      'Sign In',
+                      'Sign Up',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -233,7 +220,7 @@ class _LoginViewState extends State<LoginView> {
                     color: Colors.white.withOpacity(.2),
                     onPressed: () {},
                     child: Text(
-                      'Sign Up',
+                      'Sign In',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,

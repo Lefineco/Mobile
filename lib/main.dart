@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:lefine_app/product/navigator/app_router.gr.dart';
 
-import 'feature/login/view/login_view.dart';
-
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: [
-      SystemUiOverlay.bottom,
-    ]);
-    return const MaterialApp(
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
       title: 'Material App',
-      home: LoginView(),
       debugShowCheckedModeBanner: false,
     );
   }
