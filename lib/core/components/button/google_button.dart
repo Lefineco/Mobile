@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants/constants.dart';
+import '../../../gen/fonts.gen.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({super.key, required this.onTap});
@@ -10,6 +10,7 @@ class GoogleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var assetName = 'assets/images/svg/ic_google.svg';
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -19,14 +20,14 @@ class GoogleButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/images/svg/ic_google.svg'),
+            SvgPicture.asset(assetName),
             const SizedBox(
               width: 8,
             ),
             Text(
               'Sign in with Google',
               style: Theme.of(context).textTheme.headline6?.copyWith(
-                  fontWeight: FontWeight.w400, fontSize: 15, color: Colors.white, fontFamily: Constants.fontFamily),
+                  fontWeight: FontWeight.w400, fontSize: 15, color: Colors.white, fontFamily: FontFamily.inter),
             ),
           ],
         ),

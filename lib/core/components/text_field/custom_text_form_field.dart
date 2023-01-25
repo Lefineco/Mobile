@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lefine_app/core/constants/app/constants.dart' as Colors;
 
-import '../../constants/constants.dart';
+import '../../../gen/fonts.gen.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -60,7 +61,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: Colors.Constants.whiteColor),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       controller: _controller,
       obscureText: _isObscureText,
@@ -75,13 +76,13 @@ class CustomTextFormField extends StatelessWidget {
         labelStyle: Theme.of(context).textTheme.headline6?.copyWith(
             fontWeight: FontWeight.w500,
             fontSize: 14,
-            color: Colors.white.withOpacity(.5),
-            fontFamily: Constants.fontFamily1),
+            color: Colors.Constants.whiteColor.withOpacity(.5),
+            fontFamily: FontFamily.manrope),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: Colors.white, width: 1),
+          borderSide: BorderSide(color: Colors.Constants.whiteColor, width: 1),
         ),
-        fillColor: Colors.white.withOpacity(.1),
+        fillColor: Colors.Constants.whiteColor.withOpacity(.1),
         filled: true,
         errorText: _errorText,
         helperText: _helperText,
